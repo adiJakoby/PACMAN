@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>Pacman</title>
+  <link href="css/style.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Allerta+Stencil">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+
+
+  <script src="js/login.js"></script>
+
+
+  <style type="text/css">
+    @font-face {
+      font-family: 'BDCartoonShoutRegular';
+      src: url('BD_Cartoon_Shout-webfont.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    #pacman {
+      height: 450px;
+      width: 342px;
+      margin: 93px auto;
+      margin-left: 10px !important;
+    }
+
+    #shim {
+      font-family: BDCartoonShoutRegular;
+      position: absolute;
+      visibility: hidden
+    }
+
+    h1 {
+      font-family: BDCartoonShoutRegular;
+      text-align: center;
+      color: #ff00ff;
+    }
+
+    body {
+      width: 342px;
+      margin: 0px auto;
+      font-family: sans-serif;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+
+
+</head>
+
+<body style="background-color: black">
+
+  <div id="header">
+    <img src="logo.png" alt="logo" />
+    <a>Made by: Dorin Tzalach and Adi Jakoby</a>
+    <div class="outer">
+      <h5 class="inner">User:
+        <div id="userName" class="inner"></div>
+      </h5>
+    </div>
+    <div class="outer">
+    <h5 class="inner">Time to go:
+      <div class="inner" id="timeLeft"></div>
+    </h5>
+  </div>
+  <div class="outer">
+    <div id="title" class="inner">Pacman</div>
+    <button id="reset" class="resetbutton inner" onclick="newGame()">new Game</button>
+  </div>
+  </div>
+
+  </div>
+
+  <div id="sidenav">
+    <a onclick="ShowSection('welcome')" href="#">Welcome</a>
+    <br>
+    <a onclick="ShowSection('login')" href="#">Log In</a>
+    <br>
+    <a onclick="ShowSection('register')" href="#">Register</a>
+    <br>
+    <a onclick="ShowSection('pacman')" href="#">Game</a>
+    <br>
+    <a onclick="ShowModal()" href="#">About</a>
+  </div>
+  <!-- <input id="settings" type="image" src="picture/settings.png" onsubmit="" /> -->
+  <!-- Modal HTML embedded directly into document -->
+  <!-- Link to open the modal -->
+  <div id="welcome">
+    <div class="w3-center">
+      <h3 style="text-align:center; font-family: BDCartoonShoutRegular;">WELCOME</h3>
+      <br>
+      <p style="text-align:center; font-family: BDCartoonShoutRegular;">To start playing</p>
+      <p style="text-align:center; font-family: BDCartoonShoutRegular;">Please log-in or register</p>
+      <br>
+      <img src="picture\pacman.png" class="center">
+      <button style="left:51%; top:20%" onclick="ShowSection('register')">Register</button>
+      <button style="left:41%; top:20%" onclick="ShowSection('login')">Log in</button>
+    </div>
+  </div>
+  <div id="settings">
+    <form class="form" id="settingsForm" onsubmit="validateSettingsForm()" method="dialog">
+      <fieldset>
+        <label for="rightKey">Please Enter move Right key:</label>
+        <input type="text" name="right" />
+        <br>
+        <br>
+        <label for="leftKey">Please Enter move Left key:</label>
+        <input type="text" name="left" />
+        <br>
+        <br>
+        <label for="upKey">Please Enter move Up key:</label>
+        <input type="text" name="up" />
+        <br>
+        <br>
+        <label for="downKey">Please Enter move Down key:</label>
+        <input type="text" name="down" />
+        <br>
+        <br>
+        <label for="pillsNumber">Please Enter number of pills:</label>
+        <input type="number" name="pillsNum" min="50" max="90" />
+        <br>
+        <br>
+        <label for="fivePoints">Please Enter color of 5 points pills:</label>
+        <input type="color" name="fivePointsPills" value="#ff00ff" />
+        <br>
+        <br>
+        <label for="fifteenPoints">Please Enter color of 15 points pills:</label>
+        <input type="color" name="fifteenPointsPills" value="#ff00ff" />
+        <br>
+        <br>
+        <label for="twentyFivePoints">Please Enter color of 25 points pills:</label>
+        <input type="color" name="twentyfivePointsPills" value="#ff00ff" />
+        <br>
+        <br>
+        <label for="gameTime">Please Enter Number of seconds for the game:</label>
+        <input type="number" name="intervalTime" min="60" />
+        <br>
+        <br>
+        <label for="monsters">Please Enter Number of monsters for the game:</label>
+        <input type="number" name="numOfmonsters" min="1" max="3" />
+        <br>
+        <br>
+        <p class="outer">
+          <input class="submit inner settingBtn" type="submit" value="Submit">
+          <!--<button id="random" class="inner settingBtn" onclick="random()">random</button>-->
+          <input id="random" type="button" class="inner settingBtn" value="random">
+        </p>
+      </fieldset>
+    </form>
+  </div>
+  <div id="pacman">
+    
+  </div>
+  <script src="js/pacman.js"></script>
+  <script src="js/modernizr-1.5.min.js"></script>
+  <div id="login">
+    <form class="formLogIn" name="formLogIn" id="loginForm" onsubmit="logIn()" action="javascript:Login()">
+      <fieldset>
+        <label for="un">User Name</label>
+        <input type="text" name="un" id="unInput" />
+        <br>
+        <br>
+        <label for="pswd">Password</label>
+        <input type="text" name="pswd" id="pswdInput" />
+        <br>
+        <br>
+        <p>
+          <input class="submit" type="submit" value="Submit">
+        </p>
+      </fieldset>
+    </form>
+  </div>
+
+  <div id="register">
+    <form class="form" name="form" id="signupForm" onsubmit="return validateForm()" action="javascript:CreateUser(this)">
+      <fieldset>
+        <label for="un">User Name</label>
+        <input type="text" name="un" id="un" />
+        <br>
+        <br>
+        <label for="pswd">Password</label>
+        <input type="text" name="pswd" id="pswd" />
+        <br>
+        <br>
+        <label for="fn">First Name</label>
+        <input type="text" name="fn" id="fn" />
+        <br>
+        <br>
+        <label for="ln">Last Name</label>
+        <input type="text" name="ln" id="ln" />
+        <br>
+        <br>
+        <label for="e">Email</label>
+        <input type="email" name="e" id="email" />
+        <br>
+        <br>
+        <label for="bd">Birthday</label>
+        <input type="date" name="bd" id="bd" />
+        <br>
+        <br>
+        <p>
+          <input class="submit" type="submit" value="Submit">
+        </p>
+      </fieldset>
+    </form>
+  </div>
+  <script src="js/validation.js"></script>
+  <script src="js/users.js"></script>
+
+  <!-- The Modal -->
+  <div id="about" class="modalDialog">About>
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <h2>About:</h2>
+      <a>Made by: Dorin Tzalach & Adi Jakoby</a>
+      <h3>jQuery Plugin Uses:jquery.validate.min.js, .validate.min.js, jquery-3.4.1.min.js
+      </h3>
+      <br>
+      <h3>Difficulties:all was Difficulties, new language for us.</h3>
+    </div>
+  </div>
+
+  <div id="footer" class="footer">
+    <a>MADE BY DORIN & ADI</a>
+    <br>
+    <a>PLEASE CONTACT US BY: AMAZINGPACKMAN@GMAIL.COM</a>
+  </div>
+</body>
+<script>
+  window.onload = function () {
+
+    document.getElementById("random").addEventListener("click", function () {
+      mapUpdate();
+
+      var el = document.getElementById("pacman");
+
+      if (Modernizr.canvas && Modernizr.localstorage &&
+        Modernizr.audio && (Modernizr.audio.ogg || Modernizr.audio.mp3)) {
+        window.setTimeout(function () { PACMAN.init(el, "./"); }, 0);
+      } else {
+        el.innerHTML = "Sorry, needs a decent browser<br /><small>" +
+          "(firefox 3.6+, Chrome 4+, Opera 10+ and Safari 4+)</small>";
+      }
+      var selected = document.getElementById("reset");
+
+      selected.style.display = 'inline-block';
+
+      ShowSection('pacman');
+
+    });
+  };
+
+  function newGame()
+  {
+    PACMAN.newGame();
+  }
+</script>
+<!-- <script>
+  $(document).ready(function () {
+  var el = document.getElementById("pacman");
+
+  if (Modernizr.canvas && Modernizr.localstorage &&
+    Modernizr.audio && (Modernizr.audio.ogg || Modernizr.audio.mp3)) {
+    window.setTimeout(function () { PACMAN.init(el, "./"); }, 0);
+  } else {
+    el.innerHTML = "Sorry, needs a decent browser<br /><small>" +
+      "(firefox 3.6+, Chrome 4+, Opera 10+ and Safari 4+)</small>";
+  }
+});
+</script> -->
+
+</html>

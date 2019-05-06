@@ -1,0 +1,283 @@
+#sidenav {
+	height: 100%;
+	width: 200px;
+	position: fixed;
+	z-index: 1;
+	top: 67px;
+	left: 0;
+	background-color: #000000;
+	overflow-x: hidden;
+	padding-top: 20px;
+}
+
+#sidenav a {
+	padding: 6px 6px 6px 32px;
+	text-decoration: none;
+	font-size: 20px;
+	font-family: BDCartoonShoutRegular;
+	color: #ff00ff;
+	display: block;
+}
+
+#sidenav a:hover {
+	color: #f1f1f1;
+}
+
+
+#header
+{
+	position:fixed;
+	top:0px;
+	background: black;	
+	left: 15px;
+	width:100%;
+	margin: 0px auto;
+}
+#header img {
+	float: left;
+	left: 5px;
+	width:  80px;
+	height: 73px;
+	background: black;
+}
+#title  {    
+	margin-top: 22px;
+	margin-left: 350px;
+	font-family: BDCartoonShoutRegular;
+    text-align: center;
+	color: #ff00ff;
+	font-size: 32px;
+	float: left;
+}
+
+#header h5{
+	font-family: BDCartoonShoutRegular;
+    text-align: center;
+    color: #ff00ff;
+    float: left;
+    margin: 20px;
+}
+
+#menu
+{
+	background: #f00;
+	position:absolute;
+	top:78px;
+	left:0px;
+	width:15%;
+	height:98%;
+}
+
+#welcome
+{
+	background: #000000;
+	position:fixed;
+	color: #ff00ff;
+	top:90px;
+	left:30px;
+	width:98%;
+	height:98%;
+}
+
+#settings {
+	background: #000000;
+	position:absolute;
+	top:78px;
+	left:20px;
+	width:98%;
+	height:98%;
+	display: none;
+}
+
+
+#register
+{
+	background: #000000;
+	position:absolute;
+	top:78px;
+	left:20px;
+	width:98%;
+	height:98%;
+	display: none;
+}
+#login
+{
+	background: #000000;
+	position:absolute;
+	top:78px;
+	left:20px;
+	width:98%;
+	height:98%;
+	display: none;
+}
+.formLogIn{
+	position: relative;
+	z-index: 1;
+	max-width: 360px;
+	margin: 0 auto 100px;
+	padding: 45px;
+	text-align: center;
+	background: rgba(217, 217, 217, 0.6);
+	/* background: #000000; */
+	font-family: BDCartoonShoutRegular;
+	color: #ff00ff;
+}
+.form{
+	position: relative;
+	z-index: 1;
+	max-width: 360px;
+	margin: 0 auto 100px;
+	padding: 45px;
+	text-align: center;
+	/* background: #000000; */
+	background: rgba(217, 217, 217, 0.6);
+	font-family: BDCartoonShoutRegular;
+	color: #ff00ff;
+}
+
+#login 
+{
+	background: #000000;
+	position:absolute;
+	top:78px;
+	left:20px;
+	width:98%;
+	height:98%;
+}
+#about
+{
+	background: #000000;
+	position:fixed;
+	top:78px;
+	left:20px;
+	width:98%;
+	height:98%;
+	display: none;
+}
+.footer
+{
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: black;
+	color: #ffccff;
+	font-size: 21px;
+	font-family: "Allerta Stencil";
+	text-align: center;
+}
+
+/* #settings{
+	width: 100px;
+} */
+#reset{
+	background-color: #000000; /* Green */
+	font-family: BDCartoonShoutRegular;
+	color: #ff00ff;
+	text-align: center;
+	font-size: 16px;
+	float: left;
+	display: none;
+}
+
+
+button{
+	background-color: #ff00ff; /* Green */
+	font-family: BDCartoonShoutRegular;
+	position:absolute;
+	border: none;
+	color: #000000;
+	padding: 20px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	margin: 4px 2px;
+	cursor: pointer;	
+	border-radius: 12px;
+}
+
+.submit{
+
+	float: left;
+}
+
+.settingBtn{
+	background-color: #ff00ff; /* Green */
+	font-family: BDCartoonShoutRegular;
+	color: #000000;
+	border-radius: 8px;
+	text-align: center;
+	width: 48%;
+}
+
+/*Initial state for forms */
+/*#signupForm, #about ,#pacman, #register{
+	display: none;
+}*/
+
+/* 
+#pacman {
+	height:450px !important;
+	width:342px !important;
+	margin:20px auto; 
+	margin-top: 100px !important;
+	
+
+} */
+
+#pacman {
+	height:450px !important;
+	width:342px !important;
+	margin:93px auto;
+
+}
+
+.center {
+	display: block;
+	padding-top: 6.5%;
+	margin-left: auto;
+	margin-right: auto;
+	width:  400px;
+	height: 300px;
+  }
+
+.about {
+	left: 300px;
+}
+  
+  /* Modal Content */
+  .modal-content {
+	background-color: #fefefe;
+	padding-left: 210px;
+	border: 1px solid #ffccff;
+	width: 76%;
+  }
+  
+  /* The Close Button */
+  .close {
+	color: #aaaaaa;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+	color: #000;
+	text-decoration: none;
+	cursor: pointer;
+  }
+
+  .outer
+{
+    width:100%;
+    text-align: center;
+}
+.inner
+{
+    display: inline-block;
+}
+
+
+
